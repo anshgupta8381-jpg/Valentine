@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌸 Container */
+.container {
+  background: linear-gradient(135deg, #ff4d6d, #ff85a1, #ffb3c1);
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌹 Falling Roses */
+.roses {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.roses span {
+  position: absolute;
+  top: -50px;
+  font-size: 32px;
+  animation: fall 9s linear infinite;
+}
+
+.roses span:nth-child(1) { left: 5%; animation-duration: 7s; }
+.roses span:nth-child(2) { left: 15%; animation-duration: 9s; animation-delay: 2s; }
+.roses span:nth-child(3) { left: 30%; animation-duration: 8s; animation-delay: 4s; }
+.roses span:nth-child(4) { left: 45%; animation-duration: 10s; animation-delay: 1s; }
+.roses span:nth-child(5) { left: 60%; animation-duration: 7s; animation-delay: 3s; }
+.roses span:nth-child(6) { left: 75%; animation-duration: 9s; animation-delay: 5s; }
+.roses span:nth-child(7) { left: 85%; animation-duration: 8s; animation-delay: 2s; }
+.roses span:nth-child(8) { left: 95%; animation-duration: 10s; animation-delay: 6s; }
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 🐼 Panda */
+#panda {
+  position: absolute;
+  left: 80px;
+  top: -250px;
+  height: 200px;
+  width: 250px;
+  opacity: 0;
+  animation: pandaEntry 1.8s ease-out forwards 0.5s;
+}
+
+@keyframes pandaEntry {
+  to {
+    top: 40px;
+    opacity: 1;
+  }
+}
+
+/* 💌 Text */
+.text3 {
+  position: absolute;
+  top: 20px;                /*x FINAL position */
+  left: 55%;
+  transform: translateX(-50%);
+  font-size: 60px;
+  color: #fff;
+  font-family: 'Segoe Script', cursive;
+
+  opacity: 0;
+  animation: textFromTop 1.4s ease-out forwards;
+}
+
+@keyframes textFromTop {
+  from {
+    top: 0px;              /* thoda upar se start */
+    opacity: 0;
+  }
+  to {
+    top: 200px;              /* final yahi rahega */
+    opacity: 1;
+  }
+}
+
+
+.text4 {
+  position: absolute;
+  top: 180px;
+  left: 55%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  color: #fff7a8;
+  font-family: 'Segoe Script', cursive;
+  opacity: 0;
+  animation: textFromBottom 1.4s ease-out forwards 0.8s;
+}
+
+
+@keyframes textFromBottom {
+  from { top: 230px; opacity: 0; }
+  to { top: 100px; opacity: 1; }
+}
+
+/* 🎁 Gifts Buttons */ #gifts { 
+  position: absolute; 
+  top: 340px; 
+  width: 100%; 
+  display: flex; 
+  justify-content: center;
+  gap: 120px; 
+  z-index: 3; 
+}
+
+/* 🎁 Common gift style */
+ .gift1, .gift2, .gift3 { 
+  padding: 80px; 
+  font-size: 18px; 
+  border-radius: 50px; 
+  background: linear-gradient(#ffb3c1, #ffb3c1) padding-box, 
+  linear-gradient(45deg, #ff4d6d, #ff85a1) border-box; 
+  border: 4px solid transparent; 
+  color: red; 
+  cursor: pointer;
+  /* 🎬 POP-UP */ 
+  opacity: 0; 
+  transform: scale(0.4); 
+  animation: giftPop 0.8s ease-out forwards; 
+  /* 🖱 Hover smooth */ 
+  transition: transform 0.3s ease, 
+  box-shadow 0.3s ease; 
+}
+/* ⏱ Sequential pop delays */
+ .gift1 { animation-delay: 1.2s; } 
+ .gift2 { animation-delay: 1.5s; } 
+ .gift3 { animation-delay: 1.8s; } 
+ /* 🖱 Hover effect */ 
+ .gift1:hover,
+  .gift2:hover,
+ .gift3:hover { transform: scale(1.1);
+   box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5);
+   }
+/* 🎬 Pop animation */ 
+@keyframes giftPop { 0% { 
+  transform: scale(0.4); 
+  opacity: 0; 
+} 
+70% { 
+  transform: scale(1.1); opacity: 1; 
+} 
+100% { 
+  transform: scale(1);
+   opacity: 1; 
+  }
+ }
+
+/* 📩 Mail */
+#mail {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  height: 200px;
+  width: 225px;
+  opacity: 0;
+  transform: scale(0.6);
+  animation:
+    mailPop 0.9s ease-out forwards 2.2s,
+    mailGlow 3s ease-in-out infinite 3.2s;
+}
+
+@keyframes mailPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mailGlow {
+  50% {
+    filter:
+      drop-shadow(0 0 18px rgba(255,255,255,.9))
+      drop-shadow(0 0 35px rgba(255,150,200,.8));
+  }
+}
+
+/* ✨ Spark */
+#spk {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  height: 200px;
+  width: 225px;
+  cursor: pointer;
+  animation: glowSpark 2.5s ease-in-out infinite;
+}
+
+@keyframes glowSpark {
+  50% {
+    transform: scale(1.05);
+    filter:
+      drop-shadow(0 0 20px rgba(255,255,255,.9))
+      drop-shadow(0 0 40px rgba(255,180,220,.8));
+  }
+}
+
+/* 🔍 Scanner Popup */
+.scanner-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.scanner-box {
+  width: 320px;
+  height: 320px;
+  background: rgba(255,255,255,0.08);
+  border: 2px dashed rgba(255,255,255,0.7);
+  border-radius: 22px;
+  animation: scannerPop 0.6s ease-out forwards;
+}
+
+@keyframes scannerPop {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.scanner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+}

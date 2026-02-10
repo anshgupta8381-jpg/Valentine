@@ -1,0 +1,27 @@
+.content{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#cry{
+    height: 200px;
+    width: 200px;
+    display: flex;
+}
+
+.Try{
+  padding: 14px 40px;
+  font-size: 18px;
+  border-radius: 50px;
+  background:
+    linear-gradient(#ffb3c1, #ffb3c1) padding-box,
+    linear-gradient(45deg, #ff4d6d, #ff85a1) border-box;
+  border: 4px solid transparent;
+  color: red;
+  cursor: pointer;
+}
